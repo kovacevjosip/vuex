@@ -13,13 +13,16 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex';
+
 export default {
   computed: {
+    // mapGetters(['registrations', 'totalRegistrations'])
     total() {
-      return this.$store.state.registrations.length;
+      return this.$store.getters.totalRegistrations;
     },
     registrations() {
-      return this.$store.state.registrations;
+      return this.$store.getters.registrations;
     }
   },
   methods: {

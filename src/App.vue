@@ -13,25 +13,6 @@ export default {
   components: {
     appRegistration: Registration,
     appRegistrations: Registrations
-  },
-  data() {
-    return {}
-  },
-  computed: {
-    unregisteredUsers() {
-      return this.users.filter(user => {
-        return !user.registered;
-      });
-    }
-  },
-  methods: {
-    userUnregistered(registration) {
-      const user = this.users.find(user => {
-        return user.id === registration.userId;
-      });
-      user.registered = false;
-      this.registrations.splice(this.registrations.indexOf(registration), 1);
-    }
   }
 };
 </script>
