@@ -31,7 +31,7 @@ export default {
         return user.id === registration.userId;
       });
       user.registered = false;
-      this.$store.state.registrations.splice(this.registrations.indexOf(registration), 1);
+      this.$store.state.registrations.splice(this.$store.state.registrations.indexOf(registration), 1);
     }
   }
 };
