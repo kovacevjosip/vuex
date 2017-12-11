@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="columns has-text-centered">
-      <app-registration @userRegistered="userRegistered" :users="unregisteredUsers"></app-registration>
-      <app-registrations @userUnregistered="userUnregistered" :registrations="registrations"></app-registrations>
+      <app-registration></app-registration>
+      <app-registrations></app-registrations>
   </div>
 </template>
 
@@ -15,15 +15,7 @@ export default {
     appRegistrations: Registrations
   },
   data() {
-    return {
-      registrations: [],
-      users: [
-        { id: 1, name: "Max", registered: false },
-        { id: 2, name: "Anna", registered: false },
-        { id: 3, name: "Chris", registered: false },
-        { id: 4, name: "Sven", registered: false }
-      ]
-    };
+    return {}
   },
   computed: {
     unregisteredUsers() {
@@ -33,14 +25,6 @@ export default {
     }
   },
   methods: {
-    userRegistered(user) {
-      const date = new Date();
-      this.registrations.push({
-        userId: user.id,
-        name: user.name,
-        date: date.getMonth() + "/" + date.getDay()
-      });
-    },
     userUnregistered(registration) {
       const user = this.users.find(user => {
         return user.id === registration.userId;
@@ -49,7 +33,7 @@ export default {
       this.registrations.splice(this.registrations.indexOf(registration), 1);
     }
   }
-}
+};
 </script>
 
 <style>
@@ -59,7 +43,7 @@ export default {
 
 .pointer {
   cursor: pointer;
-  transition: opacity .25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
   opacity: 1;
 }
 
