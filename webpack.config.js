@@ -1,6 +1,8 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: ['./src/main.js'],
   },
@@ -14,15 +16,25 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {}
+        options: {},
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: '/node_modules/'
+        exclude: '/node_modules/',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+        ],
       },
     ],
   },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
