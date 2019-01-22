@@ -7,7 +7,11 @@
       <div class="tags has-addons" v-for="(registration, index) in registrations" :key="index">
           <span class="tag">{{ registration.name }}</span>
           <span class="tag">{{ registration.date }}</span>
-          <span @click="unregister(registration)"  class="tag is-danger pointer">(Unregister)</span>
+          <span
+            class="tag is-danger pointer"
+            @click="unregister(registration)">
+            (Unregister)
+          </span>
       </div>
   </div>
 </template>
