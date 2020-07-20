@@ -8,7 +8,7 @@ export default {
     const registration = {
       userId: userId,
       name: user.name,
-      date: date.getFullYear() + '/' + date.getMonth() + 1 + '/' + date.getDate()
+      date: date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
     };
     state.registrations.push(registration);
   },
